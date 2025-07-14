@@ -122,8 +122,9 @@ npm run dev
 ├───────────────┤
 │ id            │ (PK)
 │ chat_id       │ (FK → Chat.id)
-│ role          │ ('user' | 'assistant')
-│ content       │
+│ role          │ Enum('user' | 'assistant')
+│ message       │
+│ query_routing │
 │ created_at    │
 └───────────────┘
 ```
