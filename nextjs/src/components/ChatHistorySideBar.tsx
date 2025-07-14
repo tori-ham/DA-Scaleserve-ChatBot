@@ -48,13 +48,18 @@ export default function ChatHistorySideBar(props : SidebarProps) {
 
     return (
         <div className="w-64 bg-gray-100 p-4 overflow-y-auto border-r">
-            <div>
+            <div className="w-full mb-1">
                 <button 
                     onClick={onNewChat} 
-                    className="cursor-pointer"
+                    className="w-full cursor-pointer bg-blue-500 text-white rounded py-1"
                 >
                     <b>새 대화 생성</b>
                 </button>
+            </div>
+            <div className="w-full">
+                <h1 className="text-lg">
+                    <b>대화 이력</b>
+                </h1>
             </div>
             <ul>
                 {

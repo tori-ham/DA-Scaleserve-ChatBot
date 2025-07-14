@@ -116,7 +116,7 @@ export default function ChatBotWindow() {
                     const currentChat= conversations.find((c) => c.id === chatId);
                     if(currentChat.title.startsWith("New Chat ")) {
                         const userMessage= messages[0]
-                        const userMsg= new String(userMessage.message ? userMessage.message : userMessage.content)
+                        const userMsg= new String(userMessage.content ? userMessage.content : userMessage.message)
                         const newTitle= userMsg.slice(0, 20) + (userMsg.length > 20 ? "..." : "");
                         fetch(`http://localhost:8081/api/chat/${chatId}`, {
                             method: 'PATCH',
@@ -185,7 +185,7 @@ export default function ChatBotWindow() {
             />
             {
                 chatId && chatId > 0 ? (
-                    <div className="flex flex-col flex01 h-full">
+                    <div className="flex flex-col flex-1 h-full">
                         <div className="flex-grow overflow-y-auto">
                             <ChatMessageBubble messages={messages} />
                         </div>
