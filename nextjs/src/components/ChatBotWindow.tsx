@@ -98,7 +98,7 @@ export default function ChatBotWindow() {
                         setMessages( prev => {
                             const updated= [...prev];
                             const lastIndex= updated.length - 1;
-                            if(updated[lastIndex]?.role === "assisant") updated[lastIndex].query_routing= maybeRouting;
+                            if(updated[lastIndex]?.role === "assistant") updated[lastIndex].query_routing= maybeRouting;
                             return updated;
                         } );
                     }
@@ -116,7 +116,7 @@ export default function ChatBotWindow() {
                     const currentChat= conversations.find((c) => c.id === chatId);
                     if(currentChat.title.startsWith("New Chat ")) {
                         const userMessage= messages[0]
-                        const userMsg= new String(userMessage.content ? userMessage.content : userMessage.message)
+                        const userMsg= new String(userMessage?.content ? userMessage.content : userMessage.message)
                         const newTitle= userMsg.slice(0, 20) + (userMsg.length > 20 ? "..." : "");
                         fetch(`http://localhost:8081/api/chat/${chatId}`, {
                             method: 'PATCH',
