@@ -115,9 +115,9 @@ export default function ChatBotWindow() {
 
                     const currentChat= conversations.find((c) => c.id === chatId);
                     if(currentChat.title.startsWith("New Chat ")) {
-                        const userMessage= messages[0]
-                        const userMsg= new String(userMessage?.content ? userMessage.content : userMessage.message)
-                        const newTitle= userMsg.slice(0, 20) + (userMsg.length > 20 ? "..." : "");
+                        // const userMessage= messages[0]
+                        // const userMsg= new String(userMessage?.content ? userMessage.content : userMessage.message)
+                        const newTitle= currentInput.slice(0, 20) + (currentInput.length > 20 ? "..." : "");
                         fetch(`http://localhost:8081/api/chat/${chatId}`, {
                             method: 'PATCH',
                             headers: { 'Content-Type': 'application/json' },
